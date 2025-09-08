@@ -51,7 +51,7 @@ const routes = [
   },
   // { path: "/", element: <Navigate to="vision" /> },
   {
-    path: "*", // Catch-all route to handle unmatched paths
+    path: "/login", // Catch-all route to handle unmatched paths
     element: <Navigate to="/login" replace />,
   },
 ];
