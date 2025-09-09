@@ -77,7 +77,9 @@ const renderSubmenu = (category) => {
 
   // Flex layout for grandparent categories
   return (
-    <div className="absolute left-0 top-full w-full rounded-md border-t-4 border-t-blue-500 bg-white text-gray-800 shadow-lg mt-2 z-50">
+    <div className={`absolute top-full mt-2 z-50 rounded-md bg-white text-gray-800 shadow-lg ${
+    categoryChildren.length > 5 ? "left-0 w-screen" : "right-0"
+  }`}>
       <ul className="flex justify-between gap-12 px-8 py-6 bg-white">
         {categoryChildren.map((parent) => (
           <li key={parent._id} className="min-w-[150px] bg-white">
@@ -175,53 +177,39 @@ const renderSubmenu = (category) => {
   {categories.map((cat) => {
     const isOpen = openCategory === cat._id;
     return (
-      <div
-        key={cat._id}
-        className="relative"
-        onMouseEnter={() => setOpenCategory(cat._id)}
-    
+ <div
+  key={cat._id}
+  className="relative"
+  onMouseEnter={() => setOpenCategory(cat._id)}
+  onMouseLeave={() => setOpenCategory(null)}
+>
+  {/* Button */}
+  <button className="inline-flex items-center font-medium hover:text-blue-400">
+    {cat.name}
+    {cat.children && cat.children.length > 0 && (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className={`ml-1 h-4 w-4 transition-transform duration-300 ${
+          openCategory === cat._id ? "rotate-180" : ""
+        }`}
       >
-        {/* Category button */}
-        <button className="inline-flex items-center font-medium hover:text-blue-400">
-          {cat.name}
-          {cat.children && cat.children.length > 0 && (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className={`ml-1 h-4 w-4 transition-transform duration-300 ${
-                isOpen ? "rotate-180" : ""
-              }`}
-            >
-              <path d="m6 9 6 6 6-6"></path>
-            </svg>
-          )}
-        </button>
+        <path d="m6 9 6 6 6-6"></path>
+      </svg>
+    )}
+  </button>
 
-        {/* Submenu stays INSIDE this div so hover works properly */}
-        {isOpen && (
-          <div className="absolute left-0 top-full mt-2 z-50 bg-white shadow-lg rounded-md">
-            <ul className="px-4 py-2">
-              {cat.children?.map((child) => (
-                <li key={child._id}>
-                  <a
-                    href={`/category/${child._id}`}
-                    className="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-100 rounded"
-                  >
-                    {child.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </div>
+  {/* Submenu must be inside the same wrapper */}
+  {openCategory === cat._id && renderSubmenu(cat)}
+</div>
+
     );
   })}
 </nav>
