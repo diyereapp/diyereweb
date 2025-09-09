@@ -26,7 +26,7 @@ const routes = [
     element: <Home />,
   },
   {
-    path: "/all-product",
+    path: "/category/:id",
     element: <AllProduct />,
   },
     {
