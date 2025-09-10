@@ -238,86 +238,125 @@ const availableColors = [
          
          <ul class="mt-4 grid grid-cols-1 
 gap-4 md:grid-cols-3 md:gap-8 lg:grid-cols-4">
-  
-  {products.map((product) => (
-                 
-                 <li key={product._id}>
-                  
-                  <article class="flex h-full flex-col overflow-hidden rounded-2xl border bg-white
-                  hover:shadow-md"><a class="flex md:flex-grow md:flex-col" href="../catalog/port-company/core-fleece-zip-up-hoodie/index.html">
-       <div class="relative flex basis-2/5 items-center md:w-full md:max-w-none"><div class="absolute left-0 top-0 md:left-auto md:right-0"></div>
-       <div class="absolute bottom-0 left-0 md:left-auto md:right-0"></div><div class="absolute inset-0 z-10 flex h-full w-full items-center
-        justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
-        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-loader-circle size-16 animate-spin text-primary">
-       
-      </svg></div><img alt="front with design" loading="lazy" width="550" height="550" decoding="async"
-        data-nimg="1" class="absolute" style={{color:"transparent"}} srcSet="https://cdn.rushordertees.com/design/resources/scripts/ZoomImage.php?src=NTQyMTQxNg_f&amp;x=230&amp;y=300&amp;width=550&amp;height=550&amp;scale=1&amp;watermark=false&amp;autoInvertDesign=true&amp;style=PC78ZH&amp;colorCode=a226&amp;hideProduct=true 1x, https://cdn.rushordertees.com/design/resources/scripts/ZoomImage.php?src=NTQyMTQxNg_f&amp;x=230&amp;y=300&amp;width=550&amp;height=550&amp;scale=1&amp;watermark=false&amp;autoInvertDesign=true&amp;style=PC78ZH&amp;colorCode=a226&amp;hideProduct=true 2x"
-/>
-          {product.images?.length > 0 && (
-              <img
-                src={product.images[0]}
-                alt={product.name}
-                className="w-full h-full object-cover"
-              />
-            )}
-       </div><div class="flex basis-3/5 flex-col justify-center gap-2 px-2 py-3 md:w-full md:flex-grow md:justify-between"><h3 class="text-balance 
-       text-lg font-bold md:text-center">{product.name}</h3><div class="flex flex-col gap-1 md:items-center"><div class="flex 
-       flex-col md:items-center">
-        
-       
-<ul className="flex flex-wrap items-center gap-1 md:justify-center">
-  {product.color.map((colorName) => {
-    const colorObj = availableColors.find((c) => c.name === colorName);
-    if (!colorObj) return null; // skip if not found in availableColors
 
-    return (
-      <li key={colorName}>
-        <button
-          type="button"
-          className="relative flex items-center justify-center overflow-hidden rounded-md border border-black/15 bg-contain outline outline-2 outline-offset-2 hover:outline hover:outline-2 hover:outline-offset-2 hover:outline-rush-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rush-blue-500 hover:disabled:outline-transparent outline-transparent m-0 h-6 w-6"
-          aria-pressed="false"
-          title={colorObj.name}
-        >
-          <div className="flex h-full w-full">
-            <span
-              className="h-full w-full"
-              style={{ backgroundColor: colorObj.hex }}
-            ></span>
+{products.map((product) => (
+  <li key={product._id}>
+    <article className="flex h-full flex-col overflow-hidden rounded-2xl border bg-white hover:shadow-md">
+      <Link
+        to={`/single-product/${product._id}`}
+        className="flex md:flex-grow md:flex-col"
+      >
+        {/* Product image */}
+        <div className="relative flex basis-2/5 items-center md:w-full md:max-w-none">
+          <div className="absolute inset-0 z-10 flex h-full w-full items-center justify-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-loader-circle size-16 animate-spin text-primary"
+            >
+              <circle cx="12" cy="12" r="10" />
+            </svg>
           </div>
-        </button>
-      </li>
-    );
-  })}
+<img alt="front with design" loading="lazy" width="550" height="550" decoding="async" data-nimg="1" class="absolute" style={{color:"transparent"}} srcSet="https://cdn.rushordertees.com/design/resources/scripts/ZoomImage.php?src=NTQyMTQxNg_f&amp;x=230&amp;y=300&amp;width=550&amp;height=550&amp;scale=1&amp;watermark=false&amp;autoInvertDesign=true&amp;style=PC78ZH&amp;colorCode=a226&amp;hideProduct=true 1x, https://cdn.rushordertees.com/design/resources/scripts/ZoomImage.php?src=NTQyMTQxNg_f&amp;x=230&amp;y=300&amp;width=550&amp;height=550&amp;scale=1&amp;watermark=false&amp;autoInvertDesign=true&amp;style=PC78ZH&amp;colorCode=a226&amp;hideProduct=true 2x" />
+          {product.images?.length > 0 && (
+            <img
+              src={product.images[0]}
+              alt={product.name}
+              className=" w-full h-full object-cover"
+            />
+          )}
+        </div>
 
-  {product.color.length > 6 && (
-    <li className="flex justify-end text-sm text-slate-500">
-      +{product.color.length - 6} colors
-    </li>
-  )}
-</ul>
-            
+        {/* Product details */}
+        <div className="flex basis-3/5 flex-col justify-center gap-2 px-2 py-3 md:w-full md:flex-grow md:justify-between">
+          <h3 className="text-balance text-lg font-bold md:text-center">
+            {product.name}
+          </h3>
+
+          {/* Colors */}
+          <ul className="flex flex-wrap items-center gap-1 md:justify-center">
+            {product.color.slice(0, 6).map((colorName) => {
+              const colorObj = availableColors.find((c) => c.name === colorName);
+              if (!colorObj) return null;
+
+              return (
+                <li key={colorName}>
+                  <button
+                    type="button"
+                    className="relative flex items-center justify-center overflow-hidden rounded-md border border-black/15 bg-contain outline outline-2 outline-offset-2 hover:outline hover:outline-2 hover:outline-offset-2 hover:outline-rush-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rush-blue-500 hover:disabled:outline-transparent outline-transparent m-0 h-6 w-6"
+                    aria-pressed="false"
+                    title={colorObj.name}
+                  >
+                    <div className="flex h-full w-full">
+                      <span
+                        className="h-full w-full"
+                        style={{ backgroundColor: colorObj.hex }}
+                      ></span>
+                    </div>
+                  </button>
+                </li>
+              );
+            })}
+
+            {product.color.length > 6 && (
+              <li className="flex justify-end text-sm text-slate-500">
+                +{product.color.length - 6} colors
+              </li>
+            )}
+          </ul>
+
+          {/* Reviews + Size + Price */}
+          <div className="flex items-center gap-2">
+            <div
+              className="relative inline-block overflow-hidden whitespace-nowrap font-sans text-lg leading-none tracking-wide text-transparent before:absolute before:left-0 before:top-0 before:whitespace-nowrap before:font-sans before:text-slate-300 before:content-['★★★★★'] md:text-2xl"
+              role="img"
+              aria-label="5 out of 5 stars"
+            >
+              <div
+                className="absolute left-0 top-0 overflow-hidden whitespace-nowrap font-sans text-yellow-500"
+                style={{ width: "100%" }}
+                aria-hidden="true"
+              >
+                ★★★★★
+              </div>
+              ★★★★★
             </div>
-            
-            
-            <div class="flex items-center gap-2">
-              <div class="relative inline-block overflow-hidden whitespace-nowrap font-sans text-lg leading-none tracking-wide text-transparent
-               before:absolute before:left-0 before:top-0 before:whitespace-nowrap before:font-sans before:text-slate-300
-                before:content-[&#x27;★★★★★&#x27;] md:text-2xl" role="img" aria-label="5 out of 5 stars"><div class="absolute left-0 top-0 overflow-hidden
-                 whitespace-nowrap font-sans text-yellow-500" style={{width:"100%"}} aria-hidden="true">★★★★★</div>★★★★★</div><p class="text-sm">28 reviews
-                 </p></div><div class="flex items-center text-sm md:justify-center"><p>{product.size}</p><div data-orientation="vertical" role="none"
-                  class="shrink-0 w-[1px] mx-2 h-3 bg-slate-400"></div><p>No Minimum</p></div><div data-test="pricing" class="flex items-center gap-1
-                   md:justify-center"><div class="text-sm"><span class="font-semibold">$   {product.discountPrice || ""}</span> each for each items</div><button data-state="closed"
-                   aria-label="Quote Details"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info hidden size-5 
-                    cursor-help text-slate-400 hover:text-slate-600 md:block"><circle cx="12" cy="12" r="10">
-       </circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg></button><button type="button" aria-haspopup="dialog" aria-expanded="false"
-        aria-controls="radix-:Rskkmhj6m:" data-state="closed" aria-label="Open quote pricing details"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-         height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide
-          lucide-info size-5 text-slate-500 hover:text-rush-blue-600 md:hidden"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path>
-          <path d="M12 8h.01"></path></svg></button></div></div></div></a></article></li>
-          
-         ))}
-   
+            <p className="text-sm">28 reviews</p>
+          </div>
+
+          <div className="flex items-center text-sm md:justify-center">
+            <p>{product.size}</p>
+            <div
+              data-orientation="vertical"
+              role="none"
+              className="shrink-0 w-[1px] mx-2 h-3 bg-slate-400"
+            ></div>
+            <p>No Minimum</p>
+          </div>
+
+          <div
+            data-test="pricing"
+            className="flex items-center gap-1 md:justify-center"
+          >
+            <div className="text-sm">
+              <span className="font-semibold">
+                ${product.discountPrice || ""}
+              </span>{" "}
+              each for each items
+            </div>
+          </div>
+        </div>
+      </Link>
+    </article>
+  </li>
+))}
           
 </ul>
          

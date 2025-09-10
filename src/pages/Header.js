@@ -55,61 +55,66 @@ const renderSubmenu = (category) => {
     (child) => child.children && child.children.filter(isCategory).length > 0
   );
 
-  if (!isGrandparent) {
-    // Simple vertical dropdown
-    return (
-      <div className="absolute left-0 top-full bg-white text-gray-800 shadow-lg mt-2 z-50 rounded-md">
-        <ul className="px-4 py-2 bg-white">
-          {categoryChildren.map((child) => (
-            <li key={child._id}>
-              <a
-                href={`/category/${child._id}`}
-                className="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-100 rounded bg-white"
-              >
-                {child.name}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  }
-
-  // Flex layout for grandparent categories
+ if (!isGrandparent) {
+  // Simple vertical dropdown
   return (
-    <div className={`absolute top-full mt-2 z-50 rounded-md bg-white text-gray-800 shadow-lg ${
-    categoryChildren.length > 5 ? "left-0 w-screen" : "right-0"
-  }`}>
-      <ul className="flex justify-between gap-12 px-8 py-6 bg-white">
-        {categoryChildren.map((parent) => (
-          <li key={parent._id} className="min-w-[150px] bg-white">
+    <div
+      className={`absolute top-full mt-2 z-50 rounded-md bg-white text-gray-800 shadow-lg
+      ${categoryChildren.length > 8 ? "right-0" : "left-0"}`}
+    >
+      <ul className="px-4 py-2 bg-white min-w-[220px]">
+        {categoryChildren.map((child) => (
+          <li key={child._id}>
             <a
-              href={`/category/${parent._id}`}
-              className="block font-semibold mb-3 text-gray-900 hover:text-blue-600 bg-white"
+              href={`/category/${child._id}`}
+              className="block px-4 py-2 whitespace-nowrap text-gray-700 hover:text-blue-600 hover:bg-gray-100 rounded bg-white"
             >
-              {parent.name}
+              {child.name}
             </a>
-            {parent.children && parent.children.filter(isCategory).length > 0 && (
-              <ul className="flex flex-col gap-1 border-t pt-2 bg-white">
-                {parent.children
-                  .filter(isCategory)
-                  .map((child) => (
-                    <li key={child._id}>
-                      <a
-                        href={`/category/${child._id}`}
-                        className="flex items-center gap-2 whitespace-nowrap rounded-md px-2 py-1 text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900 bg-white"
-                      >
-                        {child.name}
-                      </a>
-                    </li>
-                  ))}
-              </ul>
-            )}
           </li>
         ))}
       </ul>
     </div>
   );
+}
+
+
+  // Flex layout for grandparent categories
+return (
+  <div
+    className="absolute left-1/2 top-full -translate-x-1/2 mt-2 z-50 rounded-md bg-white text-gray-800 shadow-lg"
+  >
+    <ul className="flex justify-between gap-12 px-8 py-6 bg-white">
+      {categoryChildren.map((parent) => (
+        <li key={parent._id} className="min-w-[150px] bg-white">
+          <a
+            href={`/category/${parent._id}`}
+            className="block font-semibold mb-3 text-gray-900 hover:text-blue-600 bg-white"
+          >
+            {parent.name}
+          </a>
+          {parent.children && parent.children.filter(isCategory).length > 0 && (
+            <ul className="flex flex-col gap-1 border-t pt-2 bg-white">
+              {parent.children
+                .filter(isCategory)
+                .map((child) => (
+                  <li key={child._id}>
+                    <a
+                      href={`/category/${child._id}`}
+                      className="flex items-center gap-2 whitespace-nowrap rounded-md px-2 py-1 text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900 bg-white"
+                    >
+                      {child.name}
+                    </a>
+                  </li>
+                ))}
+            </ul>
+          )}
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
 };
 
 
@@ -181,7 +186,7 @@ const renderSubmenu = (category) => {
   key={cat._id}
   className="relative"
   onMouseEnter={() => setOpenCategory(cat._id)}
-  onMouseLeave={() => setOpenCategory(null)}
+  // onMouseLeave={() => setOpenCategory(null)}
 >
   {/* Button */}
   <button className="inline-flex items-center font-medium hover:text-blue-400">

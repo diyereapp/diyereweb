@@ -30,7 +30,7 @@ const routes = [
     element: <AllProduct />,
   },
     {
-    path: "/single",
+    path: "/single-product/:id",
     element: <Single />,
   },
     {
