@@ -358,6 +358,34 @@ const availableColors = [
               
     </ul>
           
+             <nav aria-label="Pagination" class="mt-6 flex justify-between px-4 py-4 text-sm font-medium text-slate-700 sm:px-6 lg:px-8">
+          
+
+          
+          <div class="mr-6 flex-1 md:mr-8"><button class="inline-flex h-10 cursor-auto items-center rounded-md border border-slate-300 bg-white px-4 opacity-50" disabled="">Previous</button></div><div class="hidden space-x-2 md:flex"><span class="inline-flex h-10 items-center rounded-md border border-primary bg-white px-4 ring-1 ring-primary">1</span><button class="inline-flex h-10 items-center rounded-md border border-slate-300 bg-white px-4 hover:bg-slate-50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-25 focus:ring-offset-1 focus:ring-offset-primary">2</button><button class="inline-flex h-10 items-center rounded-md border border-slate-300 bg-white px-4 hover:bg-slate-50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-25 focus:ring-offset-1 focus:ring-offset-primary">3</button><button class="inline-flex h-10 items-center rounded-md border border-slate-300 bg-white px-4 hover:bg-slate-50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-25 focus:ring-offset-1 focus:ring-offset-primary">4</button><button class="inline-flex h-10 items-center rounded-md border border-slate-300 bg-white px-4 hover:bg-slate-50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-25 focus:ring-offset-1 focus:ring-offset-primary">5</button>
+         <button class="inline-flex h-10 items-center rounded-md border border-slate-300 bg-white px-4 hover:bg-slate-50 focus:border-primary 
+         focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-25 focus:ring-offset-1 
+         focus:ring-offset-primary">6</button><button class="inline-flex h-10 items-center rounded-md border border-slate-300
+          bg-white px-4 hover:bg-slate-50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary
+           focus:ring-opacity-25 focus:ring-offset-1 focus:ring-offset-primary">7</button></div><div class="ml-6 flex
+            flex-1 justify-end md:ml-8"><button class="inline-flex h-10 items-center rounded-md border border-slate-300 bg-white px-4
+             hover:bg-slate-50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-25 focus:ring-offset-1 
+             focus:ring-offset-primary">Next</button></div></nav>
+             
+             
+
+                      <div class="prose max-w-3xl py-6 prose-a:text-primary prose-a:no-underline hover:prose-a:underline"><h2>Design {name} With Your Logo
+             Or Image</h2><p>Whether you’re working or relaxing, custom hoodies are the perfect addition to your wardrobe. You can choose from a wide
+                 collection of styles and fits from leading brands like <a class="" href="../brands/gildan/hoodies/index.html">Gildan</a>, <a class="" 
+                 href="../brands/carhartt/hoodies/index.html">Carhartt</a>, <a class="" href="../brands/bella-canvas/hoodies/index.html">Bella &amp; Canvas
+                 </a>, <a class="" href="../brands/nike/hoodies/index.html">Nike</a>, <a class="" href="../brands/champion/hoodies/index.html">Champion</a>
+                  and more.</p><p>Our custom hoodies and sweatshirts are suitable for branded events, team uniforms or even as personalized gifts. 
+                    From smart quarter zips to comfortable embroidered hoodies, we have options for every budget and style.</p><p>You can quickly and 
+                        easily upload your own design using our intuitive Design Studio, adding your brand’s logo, team names or a unique image that
+                         you’ve created. You can even develop your own design directly within our platform if you don’t already have one.</p><p>Choose 
+                            between printing (no minimums) and embroidery (minimum of six), upload your design and checkout. Creating custom hoodies 
+                            has never been easier - make your own hoodie today. </p></div>
+                            
 </div>
 </div>
 </div>
