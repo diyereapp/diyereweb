@@ -78,6 +78,26 @@ useEffect(() => {
     setSelectedColor(product.color[0]);
   }
 }, [product]);
+useEffect(() => {
+  const fetchRelatedProducts = async () => {
+    if (!product?.category?._id) return;
+
+    try {
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API_URL}/api/products?category=${product.category._id}`
+      );
+
+      // filter out the current product
+      const filtered = data.filter((p) => p._id !== product._id);
+
+      setProducts(filtered);
+    } catch (err) {
+      console.error("Failed to fetch related products:", err);
+    }
+  };
+
+  fetchRelatedProducts();
+}, [product]);
 
 const availableColors = [
   { name: "Black", hex: "#000000" },
@@ -459,48 +479,110 @@ const availableColors = [
                                                                                                                 </div></div></div></section>
                                                                                                                 
                                                                                                                 
-                                                                                                                
+ <section className="text-slate-900 bg-slate-100 py-8">
+  <div className="mx-auto max-w-[1440px] px-6">
+    <h2 className="mb-4 flex justify-center text-3xl font-semibold md:mb-8">
+      Related Products
+    </h2>
+
+    <ul className="flex flex-col gap-4 md:grid md:grid-cols-4 md:gap-8">
+      {products.map((product) => (
+        <li key={product._id}>
+          <article className="flex h-full flex-col overflow-hidden rounded-2xl border bg-white hover:shadow-md">
+            <Link
+              to={`/single-product/${product._id}`}
+              className="flex md:flex-grow md:flex-col"
+            >
+              {/* Product image */}
+          <div className="relative flex basis-2/5 items-center md:w-full md:max-w-none">
+  {/* Loading spinner overlay (only if you want it) */}
+  <div className="absolute inset-0 z-10 flex h-full w-full items-center justify-center pointer-events-none">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-loader-circle size-16 animate-spin text-primary"
+    />
+  </div>
+
+  {/* Product image from DB */}
+  {product?.images?.length > 0 ? (
+    <img
+      src={product.images[0]} // ✅ show first image
+      alt={product.name}
+      className="w-full h-96 object-contain rounded-lg" // ✅ fixed height & contain
+    />
+  ) : (
+    <div className="flex h-96 w-full items-center justify-center bg-slate-200 text-slate-500 rounded-lg">
+      No Image
+    </div>
+  )}
+</div>
+
+
+              {/* Product details */}
+              <div className="flex basis-3/5 flex-col justify-center gap-2 px-2 py-3 md:w-full md:flex-grow md:justify-between">
+                <h3 className="text-balance text-lg font-bold md:text-center">
+                  {product.name}
+                </h3>
+
+                {/* Colors */}
+                <ul className="flex flex-wrap items-center gap-1 md:justify-center">
+                  {product.color?.slice(0, 6).map((colorName, i) => {
+                    const colorObj = availableColors.find(
+                      (c) => c.name === colorName
+                    );
+                    if (!colorObj) return null;
+                    return (
+                      <li
+                        key={i}
+                        className="h-5 w-5 rounded-full border"
+                        style={{ backgroundColor: colorObj.hex }}
+                        title={colorName}
+                      ></li>
+                    );
+                  })}
+                </ul>
+
+                {/* Price + Sizes */}
+                <div className="flex flex-col items-center gap-1 text-sm">
+                  {product.price && (
+                    <p>
+                      <span className="font-semibold">${product.price}</span>{" "}
+                      each
+                    </p>
+                  )}
+                  {product.sizes && (
+                    <p className="text-slate-600">{product.sizes.join(", ")}</p>
+                  )}
+                </div>
+              </div>
+            </Link>
+          </article>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+                                                                                                               
                                                                                                                 
                                                                                                                 
                                                                                                                 
                                                                                                                 
 
                                                                                                                                                                    
-                                                                                                                                                                   
-                                                                                                                                                                   <section><div class="text-slate-900 bg-slate-100 py-8"><div class="mx-auto max-w-[1440px] px-6"><h2 class="mb-4 flex justify-center text-3xl font-semibold md:mb-8">Related Styles</h2><ul class="bg-red flex flex-col gap-4 md:grid md:grid-cols-4 md:gap-8"><article class="flex h-full flex-col overflow-hidden rounded-2xl border bg-white hover:shadow-md"><a class="flex md:flex-grow md:flex-col" href="../../a4/kids-cooling-performance-shirt/index.html">
-                                                                                                                                                                  <div class="relative flex basis-2/5 items-center md:w-full md:max-w-none"><div class="absolute left-0 top-0 md:left-auto md:right-0"></div><div class="absolute bottom-0 left-0 md:left-auto md:right-0"></div><div class="absolute inset-0 z-10 flex h-full w-full items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-loader-circle size-16 animate-spin text-primary"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg></div><img alt="front with design" loading="lazy" width="550" height="550" decoding="async" data-nimg="1" class="absolute" style={{color:"transparent" }} srcSet="https://cdn.rushordertees.com/design/resources/scripts/ZoomImage.php?src=NTUyMTM2Mw_f&amp;x=230&amp;y=300&amp;width=550&amp;height=550&amp;scale=1&amp;watermark=false&amp;autoInvertDesign=true&amp;style=NB3142&amp;colorCode=59&amp;hideProduct=true 1x, https://cdn.rushordertees.com/design/resources/scripts/ZoomImage.php?src=NTUyMTM2Mw_f&amp;x=230&amp;y=300&amp;width=550&amp;height=550&amp;scale=1&amp;watermark=false&amp;autoInvertDesign=true&amp;style=NB3142&amp;colorCode=59&amp;hideProduct=true 2x" src="https://cdn.rushordertees.com/design/resources/scripts/ZoomImage.php?src=NTUyMTM2Mw_f&amp;x=230&amp;y=300&amp;width=550&amp;height=550&amp;scale=1&amp;watermark=false&amp;autoInvertDesign=true&amp;style=NB3142&amp;colorCode=59&amp;hideProduct=true"/><img alt="NB3142 59 fr" loading="lazy" width="672" height="707" decoding="async" data-nimg="1" style={{color:"transparent" }}
-                                                                                                                                                                  srcSet="https://cdn.legacy.images.rushordertees.com/unsafe/672x707/eztees-catalogrebuild.s3.amazonaws.com/modelImages/nb3142_59_fr.jpg 1x, https://cdn.legacy.images.rushordertees.com/unsafe/672x707/eztees-catalogrebuild.s3.amazonaws.com/modelImages/nb3142_59_fr.jpg 2x" src="https://cdn.legacy.images.rushordertees.com/unsafe/672x707/eztees-catalogrebuild.s3.amazonaws.com/modelImages/nb3142_59_fr.jpg"/></div><div class="flex basis-3/5 flex-col justify-center gap-2 px-2 py-3 md:w-full md:flex-grow md:justify-between"><h3 class="text-balance text-lg font-bold md:text-center">A4 Moisture Wicking Kids&#x27; T-Shirt
-                                                                                                                                                                  </h3><div class="flex flex-col gap-1 md:items-center"><div class="flex flex-col md:items-center"><ul class="flex flex-wrap items-center gap-1 md:justify-center"></ul></div><div class="flex items-center gap-2">
-                                                                                                                                                                    <div class="relative inline-block overflow-hidden whitespace-nowrap font-sans text-lg leading-none tracking-wide text-transparent before:absolute before:left-0 before:top-0 before:whitespace-nowrap before:font-sans before:text-slate-300 before:content-[&#x27;★★★★★&#x27;] md:text-2xl" role="img" aria-label="4.8 out of 5 stars"><div class="absolute left-0 top-0 overflow-hidden whitespace-nowrap font-sans text-yellow-500" style={{width:"90%"}} aria-hidden="true">★★★★★</div>★★★★★</div><p class="text-sm">38 reviews</p></div><div class="flex items-center text-sm md:justify-center"><p>YXS - YXL</p><div data-orientation="vertical" role="none" class="shrink-0 w-[1px] mx-2 h-3 bg-slate-400"></div><p>No Minimum
-                                                                                                                                                                        </p></div><div data-test="pricing" class="flex items-center gap-1 md:justify-center"><div class="text-sm"><span class="font-semibold">$14.56</span> 
-                                                                                                                                                                 each for 50 items</div><button data-state="closed" aria-label="Quote Details"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info hidden size-5 cursor-help text-slate-400 hover:text-slate-600 md:block"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg></button><button type="button" aria-haspopup="dialog" aria-expanded="false" 
-                                                                                                                                                                 aria-controls="radix-:R1p8pj6m:" data-state="closed"
-                                                                                                                                                                   aria-label="Open quote pricing details"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info 
-                                                                                                                                                                   size-5 text-slate-500 hover:text-rush-blue-600 md:hidden"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg></button></div></div></div></a></article><article class="flex h-full flex-col overflow-hidden rounded-2xl border bg-white hover:shadow-md"><a class="flex md:flex-grow md:flex-col" href="../../sport-tek/kids-posi-uv-pro-long-sleeve-tee/index.html">
-                                                                                                                                                                   <div class="relative flex basis-2/5 items-center md:w-full md:max-w-none"><div class="absolute left-0 top-0 md:left-auto md:right-0"></div><div class="absolute bottom-0 left-0 md:left-auto md:right-0"></div><div class="absolute inset-0 z-10 flex h-full w-full items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-loader-circle size-16 animate-spin text-primary"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg></div><img alt="front with design"
-                                                                                                                                                                    loading="lazy" width="550" height="550" decoding="async" data-nimg="1" class="absolute"style={{color:"transparent" }} srcSet="https://cdn.rushordertees.com/design/resources/scripts/ZoomImage.php?src=NTUyMTM2Mw_f&amp;x=230&amp;y=300&amp;width=550&amp;height=550&amp;scale=1&amp;watermark=false&amp;autoInvertDesign=true&amp;style=YST420LS&amp;colorCode=65ca&amp;hideProduct=true 1x, https://cdn.rushordertees.com/design/resources/scripts/ZoomImage.php?src=NTUyMTM2Mw_f&amp;x=230&amp;y=300&amp;width=550&amp;height=550&amp;scale=1&amp;watermark=false&amp;autoInvertDesign=true&amp;style=YST420LS&amp;colorCode=65ca&amp;hideProduct=true 2x"
-                                                                                                                                                                     src="https://cdn.rushordertees.com/design/resources/scripts/ZoomImage.php?src=NTUyMTM2Mw_f&amp;x=230&amp;y=300&amp;width=550&amp;height=550&amp;scale=1&amp;watermark=false&amp;autoInvertDesign=true&amp;style=YST420LS&amp;colorCode=65ca&amp;hideProduct=true"/><img alt="YST420LS 65ca fr" loading="lazy" width="672" height="707" decoding="async" data-nimg="1" style={{color:"transparent" }} srcSet="https://cdn.legacy.images.rushordertees.com/unsafe/672x707/eztees-catalogrebuild.s3.amazonaws.com/modelImages/yst420ls_65ca_fr.jpg 1x,
-                                                                                                                                                                    https://cdn.legacy.images.rushordertees.com/unsafe/672x707/eztees-catalogrebuild.s3.amazonaws.com/modelImages/yst420ls_65ca_fr.jpg 2x" src="https://cdn.legacy.images.rushordertees.com/unsafe/672x707/eztees-catalogrebuild.s3.amazonaws.com/modelImages/yst420ls_65ca_fr.jpg"/></div><div class="flex basis-3/5 flex-col
-                                                                                                                                                                   justify-center gap-2 px-2 py-3 md:w-full md:flex-grow md:justify-between"><h3 class="text-balance text-lg font-bold md:text-center">Sport-Tek Kids Posi-UV Pro Long Sleeve Tee</h3><div class="flex flex-col gap-1 md:items-center"><div class="flex flex-col md:items-center"><ul class="flex flex-wrap items-center gap-1 md:justify-center"></ul></div><div class="flex items-center gap-2"><div class="relative inline-block overflow-hidden whitespace-nowrap font-sans text-lg leading-none tracking-wide text-transparent before:absolute before:left-0 before:top-0 before:whitespace-nowrap before:font-sans before:text-slate-300 before:content-[&#x27;★★★★★&#x27;] md:text-2xl" role="img" aria-label="5 out of 5 stars"><div class="absolute left-0 top-0 overflow-hidden whitespace-nowrap font-sans text-yellow-500" style={{width:"100%"}} aria-hidden="true">★★★★★</div>★★★★★</div><p class="text-sm">1 review</p>
-                                                                                                                                                                   </div><div class="flex items-center text-sm md:justify-center"><p>YXS - YXL</p><div data-orientation="vertical" role="none" class="shrink-0 w-[1px] mx-2 h-3 bg-slate-400"></div><p>No Minimum</p></div><div data-test="pricing" class="flex items-center gap-1 md:justify-center"><div class="text-sm"><span class="font-semibold">$12.66</span> each for 50 items</div><button data-state="closed" aria-label="Quote Details"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info hidden size-5 cursor-help text-slate-400 hover:text-slate-600 md:block"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path>
-                                                                                                                                                                   </svg></button><button type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-:R1p99j6m:" data-state="closed" aria-label="Open quote pricing details"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info size-5 text-slate-500 hover:text-rush-blue-600 md:hidden">
-                                                                                                                                                                    <circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg></button></div></div></div></a></article><article class="flex h-full flex-col overflow-hidden 
-                                                                                                                                                                   rounded-2xl border bg-white hover:shadow-md"><a class="flex md:flex-grow md:flex-col" href="../../port-company/kids-long-sleeve-performance-tee/index.html"><div class="relative flex basis-2/5 items-center md:w-full md:max-w-none"><div class="absolute left-0 top-0 md:left-auto md:right-0"></div><div class="absolute bottom-0 left-0 md:left-auto md:right-0"></div><div class="absolute inset-0 z-10 flex h-full w-full items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" 
-                                                                                                                                                                   fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-loader-circle size-16 animate-spin text-primary"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg></div><img alt="front with design" loading="lazy" width="550" height="550" decoding="async" data-nimg="1" class="absolute" style={{color:"transparent" }} srcSet="https://cdn.rushordertees.com/design/resources/scripts/ZoomImage.php?src=NTUyMTM2Mw_f&amp;x=230&amp;y=300&amp;width=550&amp;height=550&amp;scale=1&amp;watermark=false&amp;autoInvertDesign=true&amp;style=PC380YLS&amp;colorCode=3c39&amp;hideProduct=true 1x, https://cdn.rushordertees.com/design/resources/scripts/ZoomImage.php?src=NTUyMTM2Mw_f&amp;x=230&amp;y=300&amp;width=550&amp;height=550&amp;scale=1&amp;watermark=false&amp;autoInvertDesign=true&amp;style=PC380YLS&amp;colorCode=3c39&amp;hideProduct=true 2x" src="https://cdn.rushordertees.com/design/resources/scripts/ZoomImage.php?src=NTUyMTM2Mw_f&amp;x=230&amp;y=300&amp;width=550&amp;height=550&amp;scale=1&amp;watermark=false&amp;autoInvertDesign=true&amp;style=PC380YLS&amp;colorCode=3c39&amp;hideProduct=true"/><img alt="PC380YLS 3c39 fr" loading="lazy" width="672" height="707" decoding="async" data-nimg="1" style={{color:"transparent" }} srcSet="https://cdn.legacy.images.rushordertees.com/unsafe/672x707/eztees-catalogrebuild.s3.amazonaws.com/modelImages/pc380yls_3c39_fr.jpg 1x, https://cdn.legacy.images.rushordertees.com/unsafe/672x707/eztees-catalogrebuild.s3.amazonaws.com/modelImages/pc380yls_3c39_fr.jpg 2x" src="https://cdn.legacy.images.rushordertees.com/unsafe/672x707/eztees-catalogrebuild.s3.amazonaws.com/modelImages/pc380yls_3c39_fr.jpg"/></div><div class="flex basis-3/5 flex-col justify-center gap-2 px-2 py-3 md:w-full md:flex-grow md:justify-between"><h3 class="text-balance text-lg font-bold md:text-center">Port &amp; Company Kids Long Sleeve Performance Tee</h3><div class="flex flex-col gap-1 md:items-center">
-                                                                                                                                                                    <div class="flex flex-col md:items-center"><ul class="flex flex-wrap items-center gap-1 md:justify-center">
-                                                                                                                                                                   </ul></div><div class="flex items-center text-sm md:justify-center"><p>YXS - YXL</p><div data-orientation="vertical" role="none" class="shrink-0 w-[1px] mx-2 h-3 bg-slate-400"></div><p>No Minimum</p></div><div data-test="pricing" class="flex items-center gap-1 md:justify-center"><div class="text-sm"><span class="font-semibold">$13.81</span> each for 50 items</div><button data-state="closed" aria-label="Quote Details"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info hidden size-5 cursor-help text-slate-400 hover:text-slate-600 md:block"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg></button><button type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-:R1p9pj6m:" data-state="closed" aria-label="Open quote pricing details"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info size-5 text-slate-500 hover:text-rush-blue-600 md:hidden"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg></button></div></div></div></a></article><article class="flex h-full flex-col overflow-hidden rounded-2xl border bg-white hover:shadow-md"><a class="flex md:flex-grow md:flex-col" href="../../nike/kids-swoosh-sleeve-rlegend-tee/index.html">
-                                                                                                                                                                   <div class="relative flex basis-2/5 items-center md:w-full md:max-w-none"><div class="absolute left-0 top-0 md:left-auto md:right-0"></div><div class="absolute bottom-0 left-0 md:left-auto md:right-0"><div class="max-h-22px relative whitespace-nowrap text-sm font-semibold leading-4 tracking-[.25px] flex items-center gap-1 bg-green-200 text-green-900 rounded-tr-2xl px-4 py-2 md:rounded-tl-2xl md:rounded-tr-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-leaf size-4"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg>Eco-Friendly</div></div><div class="absolute inset-0 z-10 flex h-full w-full items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-loader-circle size-16 animate-spin text-primary"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg></div><img alt="front with design" loading="lazy" width="550" height="550" decoding="async" data-nimg="1" class="absolute" style={{color:"transparent" }} srcSet="https://cdn.rushordertees.com/design/resources/scripts/ZoomImage.php?src=NTM5NjQwNA_f&amp;x=230&amp;y=300&amp;width=550&amp;height=550&amp;scale=1&amp;watermark=false&amp;autoInvertDesign=true&amp;style=NKDX8787&amp;colorCode=bec7&amp;hideProduct=true 1x, https://cdn.rushordertees.com/design/resources/scripts/ZoomImage.php?src=NTM5NjQwNA_f&amp;x=230&amp;y=300&amp;width=550&amp;height=550&amp;scale=1&amp;watermark=false&amp;autoInvertDesign=true&amp;style=NKDX8787&amp;colorCode=bec7&amp;hideProduct=true 2x"
-                                                                                                                                                                    src="https://cdn.rushordertees.com/design/resources/scripts/ZoomImage.php?src=NTM5NjQwNA_f&amp;x=230&amp;y=300&amp;width=550&amp;height=550&amp;scale=1&amp;watermark=false&amp;autoInvertDesign=true&amp;style=NKDX8787&amp;colorCode=bec7&amp;hideProduct=true"/><img alt="NKDX8787 bec7 fr" loading="lazy" width="672" height="707" decoding="async" data-nimg="1" style={{color:"transparent" }}
-                                                                                                                                                                    srcSet="https://cdn.legacy.images.rushordertees.com/unsafe/672x707/eztees-catalogrebuild.s3.amazonaws.com/modelImages/nkdx8787_bec7_fr.jpg 1x, https://cdn.legacy.images.rushordertees.com/unsafe/672x707/eztees-catalogrebuild.s3.amazonaws.com/modelImages/nkdx8787_bec7_fr.jpg 2x" src="https://cdn.legacy.images.rushordertees.com/unsafe/672x707/eztees-catalogrebuild.s3.amazonaws.com/modelImages/nkdx8787_bec7_fr.jpg"/></div><div class="flex basis-3/5 flex-col justify-center gap-2 px-2 py-3 md:w-full md:flex-grow md:justify-between"><h3 class="text-balance text-lg font-bold md:text-center">Nike Kids Swoosh Sleeve rLegend Tee</h3><div class="flex flex-col gap-1 md:items-center">
-                                                                                                                                                                    <div class="flex flex-col md:items-center"><ul class="flex flex-wrap items-center gap-1 md:justify-center"></ul></div><div class="flex items-center gap-2"><div class="relative inline-block overflow-hidden whitespace-nowrap font-sans text-lg leading-none tracking-wide text-transparent before:absolute before:left-0 before:top-0 before:whitespace-nowrap before:font-sans before:text-slate-300 before:content-[&#x27;★★★★★&#x27;] md:text-2xl" role="img" aria-label="5 out of 5 stars"><div class="absolute left-0 top-0 overflow-hidden whitespace-nowrap font-sans text-yellow-500" style={{width:"100%"}} aria-hidden="true">★★★★★</div>★★★★★</div><p class="text-sm">3 reviews</p></div><div class="flex items-center text-sm md:justify-center"><p>YXS - L/XL</p><div data-orientation="vertical" role="none" class="shrink-0 w-[1px] mx-2 h-3 bg-slate-400"></div><p>No Minimum</p></div><div data-test="pricing" class="flex items-center gap-1 md:justify-center"><div class="text-sm"><span class="font-semibold">$35.75</span> each for 50 items</div><button data-state="closed" aria-label="Quote Details"><svg xmlns="http://www.w3.org/2000/svg"
-                                                                                                                                                                     width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info hidden size-5 cursor-help text-slate-400 hover:text-slate-600 md:block"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg></button><button type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-:R1pa9j6m:" data-state="closed" aria-label="Open quote pricing details"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info size-5 text-slate-500 hover:text-rush-blue-600 md:hidden"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg></button></div></div></div></a></article></ul></div></div></section><section><div class="bg-slate-100 text-slate-900 py-2">
-                                                                                                                                                                      
-                                                                                                                                                                  
+                                                                                                                                                                
+                                                                                                                                                                         
+                                                                                                                                                                         
+                                                                                                                                                                       
                                                                                                                                                                       
                                                                                                                                                                       </div>
-                                                                                                                                                                      
-                                                                                                                                                                      
-                                                                                                                                                                      </section></div>
                 
                 
                 </main>
