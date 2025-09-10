@@ -9,7 +9,7 @@ import hiab from "./ran.png";
 import "./home.css";
 import "./style.css";
 import Footer from "./Footer";
-import braImg from "./bra.png";
+import braImg from "./bus2.png";
 
 const bgImage = `url("data:image/svg+xml;utf8,
   <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 150'>
@@ -52,10 +52,18 @@ const Banner = () => {
   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" 
   
  src={braImg}/></div>
-   </div></div></div></section><div class="bg-slate-100 text-slate-900"><div class="mx-auto max-w-[1440px] px-6">
+   </div></div></div></section><div class="bg-slate-100 text-slate-900">
+    
+    
+    <div class="mx-auto max-w-[1440px] px-6">
+
+
+
     <div class="flex flex-col items-center justify-center"><h2 class="mt-8 text-4xl font-semibold">Shop Top Categories</h2>
     <p class="mt-2 text-center text-xl font-light">Best selling apparel great for any occasion</p><ul class="my-8 grid grid-cols-2 gap-4 md:gap-4 lg:gap-8 md:grid-cols-2 lg:grid-cols-4">
-      <li class="flex"><a class="flex flex-col items-center justify-center overflow-hidden rounded-2xl border bg-white transition-opacity duration-200 hover:shadow-md" href="t-shirts/index.html">
+      <li class="flex"><a class="flex flex-col items-center justify-center overflow-hidden rounded-2xl border bg-white transition-opacity 
+      
+      duration-200 hover:shadow-md" href="t-shirts/index.html">
                                                 <img alt="T-Shirts" width="800" height="900" decoding="async" data-nimg="1"
                                                 
                                                 
@@ -142,7 +150,13 @@ const Banner = () => {
     backgroundImage:
       "url(_data_image/svg%2bxml%3bcharset%3dutf-8%2c_svg%20xmlns%3d%27http_/www.w3.org/2000/svg%27%20viewBox%3d%270%200%20800%20900%27__filter%20id%3d%27b%27%20color/__feColorMatrix%20values%3d%271%200%200%200%200%200%201%200%200%200%200/filter__image%20width%3d%2710);' href='data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAUGBwMI/8QAIxAAAQMEAgIDAQAAAAAAAAAAAQIDBAAFBhESEyExFEFRYf/EABUBAQEAAAAAAAAAAAAAAAAAAAED/8QAGxEAAwEAAwEAAAAAAAAAAAAAAAECEQNBYRL/2gAMAwEAAhEDEQA/APR0u+9GRxrWlgqDqSpTu/CP5UZec6tdruy4chaw40QlYCd+T6qLvJQjNlOBZLyAkpR6BrPc7jyHsmFxCkdcl1JDSVbJ4kVTklR8+onx073xm8QbnEmsB5h0KRvX5o/lKruN26V8J1xxrq7XVOJSr3ogUqZQ43/GJcq+OXOK+2Dw0EKH2KrcTCLtcJ8GTKXGjtxneRbT55DezSlN07a3oJlRudmrpHFIA+qUpQJ//9k='/%3E%3C/svg%3E\")"
   }} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" srcSet="https://cdn.sanity.io/images/2ahps9jc/production/cf18132f13ad8b1daa0f73974a27c019827e6131-800x900.jpg?w=256&amp;q=75&amp;fit=min&amp;auto=format 256w, https://cdn.sanity.io/images/2ahps9jc/production/cf18132f13ad8b1daa0f73974a27c019827e6131-800x900.jpg?w=384&amp;q=75&amp;fit=min&amp;auto=format 384w, https://cdn.sanity.io/images/2ahps9jc/production/cf18132f13ad8b1daa0f73974a27c019827e6131-800x900.jpg?w=640&amp;q=75&amp;fit=min&amp;auto=format 640w, https://cdn.sanity.io/images/2ahps9jc/production/cf18132f13ad8b1daa0f73974a27c019827e6131-800x900.jpg?w=750&amp;q=75&amp;fit=min&amp;auto=format 750w, https://cdn.sanity.io/images/2ahps9jc/production/cf18132f13ad8b1daa0f73974a27c019827e6131-800x900.jpg?w=828&amp;q=75&amp;fit=min&amp;auto=format 828w, https://cdn.sanity.io/images/2ahps9jc/production/cf18132f13ad8b1daa0f73974a27c019827e6131-800x900.jpg?w=1080&amp;q=75&amp;fit=min&amp;auto=format 1080w, https://cdn.sanity.io/images/2ahps9jc/production/cf18132f13ad8b1daa0f73974a27c019827e6131-800x900.jpg?w=1200&amp;q=75&amp;fit=min&amp;auto=format 1200w, https://cdn.sanity.io/images/2ahps9jc/production/cf18132f13ad8b1daa0f73974a27c019827e6131-800x900.jpg?w=1920&amp;q=75&amp;fit=min&amp;auto=format 1920w, https://cdn.sanity.io/images/2ahps9jc/production/cf18132f13ad8b1daa0f73974a27c019827e6131-800x900.jpg?w=2048&amp;q=75&amp;fit=min&amp;auto=format 2048w, https://cdn.sanity.io/images/2ahps9jc/production/cf18132f13ad8b1daa0f73974a27c019827e6131-800x900.jpg?w=3840&amp;q=75&amp;fit=min&amp;auto=format 3840w" src="https://cdn.sanity.io/images/2ahps9jc/production/cf18132f13ad8b1daa0f73974a27c019827e6131-800x900.jpg?w=3840&amp;q=75&amp;fit=min&amp;auto=format"/><h3 class="p-4 text-center text-lg font-bold">Long Sleeve T-Shirts</h3>
-                                                        </a></li></ul><div class="pb-8"><a class="inline-flex items-center justify-center whitespace-nowrap font-bold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-12 rounded-2xl px-8 text-lg" href="catalog/index.html">Shop All Products</a></div></div></div></div><div class="bg-slate-100 text-slate-900 py-4"><div class="mx-auto max-w-[1440px] px-6"><section class="flex flex-col items-center justify-center gap-8"><div class="flex flex-col justify-center gap-1 text-center"><h2 class="text-4xl font-semibold">Brands You Love</h2><p>Choose from popular brands like Nike, Carhartt, Under Armour and much more</p></div><ul class="grid grid-cols-2 gap-4 md:grid-cols-5"><li class="flex w-full basis-[calc(50%-1rem)] items-center justify-center rounded-2xl border bg-white transition-opacity duration-200 hover:shadow-md md:basis-[calc(20%-1rem)]"><a class="w-full p-6" href="brands/nike/index.html"><img alt="Nike" loading="lazy" width="500" height="250" decoding="async" data-nimg="1"
+                                                        </a></li></ul>
+                                                        
+                                                        
+                                                        
+                                                        <div class="pb-8"><a class="inline-flex items-center justify-center whitespace-nowrap 
+                                                        
+                                                        font-bold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-12 rounded-2xl px-8 text-lg" href="catalog/index.html">Shop All Products</a></div></div></div></div><div class="bg-slate-100 text-slate-900 py-4"><div class="mx-auto max-w-[1440px] px-6"><section class="flex flex-col items-center justify-center gap-8"><div class="flex flex-col justify-center gap-1 text-center"><h2 class="text-4xl font-semibold">Brands You Love</h2><p>Choose from popular brands like Nike, Carhartt, Under Armour and much more</p></div><ul class="grid grid-cols-2 gap-4 md:grid-cols-5"><li class="flex w-full basis-[calc(50%-1rem)] items-center justify-center rounded-2xl border bg-white transition-opacity duration-200 hover:shadow-md md:basis-[calc(20%-1rem)]"><a class="w-full p-6" href="brands/nike/index.html"><img alt="Nike" loading="lazy" width="500" height="250" decoding="async" data-nimg="1"
                                                         
                              style={{
     color: "transparent",
@@ -152,7 +166,10 @@ const Banner = () => {
     backgroundImage:
       "url(_data_image/svg%2bxml%3bcharset%3dutf-8%2c_svg%20xmlns%3d%27http_/www.w3.org/2000/svg%27%20viewBox%3d%270%200%20800%20900%27__filter%20id%3d%27b%27%20color/__feColorMatrix%20values%3d%271%200%200%200%200%200%201%200%200%200%200/filter__image%20width%3d%2710);' href='data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAUGBwMI/8QAIxAAAQMEAgIDAQAAAAAAAAAAAQIDBAAFBhESEyExFEFRYf/EABUBAQEAAAAAAAAAAAAAAAAAAAED/8QAGxEAAwEAAwEAAAAAAAAAAAAAAAECEQNBYRL/2gAMAwEAAhEDEQA/APR0u+9GRxrWlgqDqSpTu/CP5UZec6tdruy4chaw40QlYCd+T6qLvJQjNlOBZLyAkpR6BrPc7jyHsmFxCkdcl1JDSVbJ4kVTklR8+onx073xm8QbnEmsB5h0KRvX5o/lKruN26V8J1xxrq7XVOJSr3ogUqZQ43/GJcq+OXOK+2Dw0EKH2KrcTCLtcJ8GTKXGjtxneRbT55DezSlN07a3oJlRudmrpHFIA+qUpQJ//9k='/%3E%3C/svg%3E\")"
   }}
-  src="https://cdn.sanity.io/images/2ahps9jc/production/96692d5643123aac52b9d057d065e86703cd4b68-500x250.png?w=3840&amp;q=75&amp;fit=min&amp;auto=format"/></a></li><li class="flex w-full basis-[calc(50%-1rem)] items-center justify-center rounded-2xl border bg-white transition-opacity duration-200 hover:shadow-md md:basis-[calc(20%-1rem)]"><a class="w-full p-6" href="brands/carhartt/index.html">
+  src="https://cdn.sanity.io/images/2ahps9jc/production/96692d5643123aac52b9d057d065e86703cd4b68-500x250.png?w=3840&amp;q=75&amp;fit=min&amp;auto=format"/>
+  
+  </a></li><li class="flex w-full basis-[calc(50%-1rem)] items-center justify-center rounded-2xl border bg-white transition-opacity duration-200 
+  hover:shadow-md md:basis-[calc(20%-1rem)]"><a class="w-full p-6" href="brands/carhartt/index.html">
                                                           <img alt="Carhartt" loading="lazy" width="500" height="250" decoding="async" data-nimg="1"
   style={{
     color: "transparent",
@@ -161,7 +178,16 @@ const Banner = () => {
     backgroundRepeat: "no-repeat",
     backgroundImage:
       "url(_data_image/svg%2bxml%3bcharset%3dutf-8%2c_svg%20xmlns%3d%27http_/www.w3.org/2000/svg%27%20viewBox%3d%270%200%20800%20900%27__filter%20id%3d%27b%27%20color/__feColorMatrix%20values%3d%271%200%200%200%200%200%201%200%200%200%200/filter__image%20width%3d%2710);' href='data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAUGBwMI/8QAIxAAAQMEAgIDAQAAAAAAAAAAAQIDBAAFBhESEyExFEFRYf/EABUBAQEAAAAAAAAAAAAAAAAAAAED/8QAGxEAAwEAAwEAAAAAAAAAAAAAAAECEQNBYRL/2gAMAwEAAhEDEQA/APR0u+9GRxrWlgqDqSpTu/CP5UZec6tdruy4chaw40QlYCd+T6qLvJQjNlOBZLyAkpR6BrPc7jyHsmFxCkdcl1JDSVbJ4kVTklR8+onx073xm8QbnEmsB5h0KRvX5o/lKruN26V8J1xxrq7XVOJSr3ogUqZQ43/GJcq+OXOK+2Dw0EKH2KrcTCLtcJ8GTKXGjtxneRbT55DezSlN07a3oJlRudmrpHFIA+qUpQJ//9k='/%3E%3C/svg%3E\")"
-  }}sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" srcSet="https://cdn.sanity.io/images/2ahps9jc/production/374d0a23f1f18ba3814fcb40b9c4678cee45e3db-500x250.png?w=256&amp;q=75&amp;fit=min&amp;auto=format 256w, https://cdn.sanity.io/images/2ahps9jc/production/374d0a23f1f18ba3814fcb40b9c4678cee45e3db-500x250.png?w=384&amp;q=75&amp;fit=min&amp;auto=format 384w, https://cdn.sanity.io/images/2ahps9jc/production/374d0a23f1f18ba3814fcb40b9c4678cee45e3db-500x250.png?w=640&amp;q=75&amp;fit=min&amp;auto=format 640w, https://cdn.sanity.io/images/2ahps9jc/production/374d0a23f1f18ba3814fcb40b9c4678cee45e3db-500x250.png?w=750&amp;q=75&amp;fit=min&amp;auto=format 750w, https://cdn.sanity.io/images/2ahps9jc/production/374d0a23f1f18ba3814fcb40b9c4678cee45e3db-500x250.png?w=828&amp;q=75&amp;fit=min&amp;auto=format 828w, https://cdn.sanity.io/images/2ahps9jc/production/374d0a23f1f18ba3814fcb40b9c4678cee45e3db-500x250.png?w=1080&amp;q=75&amp;fit=min&amp;auto=format 1080w, https://cdn.sanity.io/images/2ahps9jc/production/374d0a23f1f18ba3814fcb40b9c4678cee45e3db-500x250.png?w=1200&amp;q=75&amp;fit=min&amp;auto=format 1200w, https://cdn.sanity.io/images/2ahps9jc/production/374d0a23f1f18ba3814fcb40b9c4678cee45e3db-500x250.png?w=1920&amp;q=75&amp;fit=min&amp;auto=format 1920w, https://cdn.sanity.io/images/2ahps9jc/production/374d0a23f1f18ba3814fcb40b9c4678cee45e3db-500x250.png?w=2048&amp;q=75&amp;fit=min&amp;auto=format 2048w, https://cdn.sanity.io/images/2ahps9jc/production/374d0a23f1f18ba3814fcb40b9c4678cee45e3db-500x250.png?w=3840&amp;q=75&amp;fit=min&amp;auto=format 3840w" src="https://cdn.sanity.io/images/2ahps9jc/production/374d0a23f1f18ba3814fcb40b9c4678cee45e3db-500x250.png?w=3840&amp;q=75&amp;fit=min&amp;auto=format"/></a></li><li class="flex w-full basis-[calc(50%-1rem)] items-center justify-center rounded-2xl border bg-white transition-opacity duration-200 hover:shadow-md md:basis-[calc(20%-1rem)]"><a class="w-full p-6" href="brands/under-armour/index.html"><img alt="Under Armour" loading="lazy" width="552" height="276" decoding="async" data-nimg="1"
+  }}sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" srcSet="https://cdn.sanity.io/images/2ahps9jc/production/374d0a23f1f18ba3814fcb40b9c4678cee45e3db-500x250.png?w=256&amp;q=75&amp;fit=min&amp;auto=format 256w, https://cdn.sanity.io/images/2ahps9jc/production/374d0a23f1f18ba3814fcb40b9c4678cee45e3db-500x250.png?w=384&amp;q=75&amp;fit=min&amp;auto=format 384w, https://cdn.sanity.io/images/2ahps9jc/production/374d0a23f1f18ba3814fcb40b9c4678cee45e3db-500x250.png?w=640&amp;q=75&amp;fit=min&amp;auto=format 640w, https://cdn.sanity.io/images/2ahps9jc/production/374d0a23f1f18ba3814fcb40b9c4678cee45e3db-500x250.png?w=750&amp;q=75&amp;fit=min&amp;auto=format 750w, https://cdn.sanity.io/images/2ahps9jc/production/374d0a23f1f18ba3814fcb40b9c4678cee45e3db-500x250.png?w=828&amp;q=75&amp;fit=min&amp;auto=format 828w, https://cdn.sanity.io/images/2ahps9jc/production/374d0a23f1f18ba3814fcb40b9c4678cee45e3db-500x250.png?w=1080&amp;q=75&amp;fit=min&amp;auto=format 1080w,
+   https://cdn.sanity.io/images/2ahps9jc/production/374d0a23f1f18ba3814fcb40b9c4678cee45e3db-500x250.png?w=1200&amp;q=75&amp;fit=min&amp;auto=format 1200w,
+    https://cdn.sanity.io/images/2ahps9jc/production/374d0a23f1f18ba3814fcb40b9c4678cee45e3db-500x250.png?w=1920&amp;q=75&amp;fit=min&amp;auto=format 1920w, 
+    https://cdn.sanity.io/images/2ahps9jc/production/374d0a23f1f18ba3814fcb40b9c4678cee45e3db-500x250.png?w=2048&amp;q=75&amp;fit=min&amp;auto=format 2048w, 
+    https://cdn.sanity.io/images/2ahps9jc/production/374d0a23f1f18ba3814fcb40b9c4678cee45e3db-500x250.png?w=3840&amp;q=75&amp;fit=min&amp;auto=format 3840w"
+     src="https://cdn.sanity.io/images/2ahps9jc/production/374d0a23f1f18ba3814fcb40b9c4678cee45e3db-500x250.png?w=3840&amp;q=75&amp;fit=min&amp;auto=format"/></a>
+     </li><li class="flex w-full basis-[calc(50%-1rem)] items-center justify-center rounded-2xl border bg-white transition-opacity duration-200 hover:shadow-md md:basis-[calc(20%-1rem)]">
+      
+      <a class="w-full p-6" href="brands/under-armour/index.html">
+      <img alt="Under Armour" loading="lazy" width="552" height="276" decoding="async" data-nimg="1"
   
   style={{
     color: "transparent",

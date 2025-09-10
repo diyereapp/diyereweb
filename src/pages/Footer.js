@@ -14,7 +14,7 @@ const Footer = () => {
 
   return (
     <>
-<div>
+<div >
     <main>
   
                     <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-bold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border bg-white text-slate-300 shadow hover:border-primary/90 hover:text-primary rounded-xl absolute h-12 w-12 -left-8 top-1/2 -translate-y-1/2" disabled=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left h-4 w-4"><path d="m15 18-6-6 6-6"></path></svg><span class="sr-only">Previous slide</span></button>
@@ -27,7 +27,7 @@ const Footer = () => {
 
                         
     
-    <footer class="bg-slate-900 py-8 __className_0fe379"><div class="h-24 bg-inherit after:-mt-12 after:block after:h-0.5 after:w-full after:bg-slate-100 after:content-[&#x27;&#x27;]">
+    <footer class="bg-slate-900 py-8 __className_0fe379" style={{backgroundColor: "black"}}><div class="h-24 bg-inherit after:-mt-12 after:block after:h-0.5 after:w-full after:bg-slate-100 after:content-[&#x27;&#x27;]">
     {/*<img alt="" loading="lazy" width="484" height="484" decoding="async" data-nimg="1" class="mx-auto h-24 w-24"   style={{
     color: "transparent",
     backgroundSize: "cover",
