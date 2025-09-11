@@ -14,7 +14,7 @@ import Banner from "./Banner";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FiHelpCircle } from "react-icons/fi"; // Feather icon (react-icons)
-
+import { MessageCircle, Phone } from "lucide-react";
 
 const bgImage = `url("data:image/svg+xml;utf8,
   <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 150'>
@@ -339,18 +339,52 @@ return (
 
     </div>
                                             
-                                            <div className="absolute left-0 top-full flex w-full justify-center"></div></nav><a className="inline-flex
+                                            <div className="absolute left-0 top-full flex w-full justify-center"></div>
+                                            
+                                            </nav>
+                                            
+                                            <a className="inline-flex
                                              items-center justify-center whitespace-nowrap text-sm font-bold ring-offset-background transition-colors
-                                              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border-2 border-primary text-primary hover:bg-primary hover:text-white h-11 rounded-2xl px-4 py-2" href="design-t-shirts/index.html">Design Now</a><div className="relative ml-4 flex min-w-[200px] items-center gap-4"><button className="absolute flex animate-[fade-v1_10s_infinite_linear] items-center xl:relative xl:animate-none"><img alt="Chat Icon" loading="eager" width="96" height="96" decoding="async" data-nimg="1" className="mr-2 h-10 w-10" style={{color:"transparent"}} srcSet="/_next/image/?url=%2F_next%2Fstatic%2Fmedia%2Fchat-icon.fa32fade.png&amp;w=96&amp;q=75 1x, /_next/image/?url=%2F_next%2Fstatic%2Fmedia%2Fchat-icon.fa32fade.png&amp;w=256&amp;q=75 2x"
-                             src="_next/image/index1538.html?url=%2F_next%2Fstatic%2Fmedia%2Fchat-icon.fa32fade.png&amp;w=256&amp;q=75"/>
-                            <div><p className="text-lg/5 font-semibold text-primary">Live Chat Now</p><p className="flex items-center text-sm font-medium"><span className="mr-1 h-2 w-2 rounded-full bg-green-500"></span>Chat With an Expert</p></div></button><div data-orientation="vertical" role="none" className="shrink-0 bg-border w-[1px] hidden h-10 xl:block"></div><a href="tel:8006201233" className="absolute flex animate-[fade-v2_10s_infinite_linear] items-center xl:relative xl:animate-none"><img alt="Call Icon" loading="eager" width="96" height="96" decoding="async" data-nimg="1" className="mr-2 h-10 w-10" 
-                           style={{ color: 'transparent' }}
+                                              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 
+                                              disabled:pointer-events-none disabled:opacity-50 border-2 border-primary text-primary hover:bg-primary
+                                               hover:text-white h-11 rounded-2xl px-4 py-2" href="design-t-shirts/index.html">Design Now</a>
+                                               <div className="relative ml-4 flex min-w-[200px] items-center gap-4">
+                                                
+                                                {/* Chat Button */}
+      <button className="absolute flex animate-[fade-v1_10s_infinite_linear] items-center xl:relative xl:animate-none">
+        <MessageCircle className="mr-2 h-10 w-10 text-green-600" />
+        <div>
+          <p className="text-lg/5 font-semibold text-primary">Live Chat Now</p>
+          <p className="flex items-center text-sm font-medium">
+            <span className="mr-1 h-2 w-2 rounded-full bg-green-500"></span>
+            Chat With an Expert
+          </p>
+        </div>
+      </button>
+
+
                             
-                            srcSet="/_next/image/?url=%2F_next%2Fstatic%2Fmedia%2Fcall-icon.d25750d8.png&amp;w=96&amp;q=75 1x, /_next/image/?url=%2F_next%2Fstatic%2Fmedia%2Fcall-icon.d25750d8.png&amp;w=256&amp;q=75 2x"
-                             src="_next/image/index04b3.html?url=%2F_next%2Fstatic%2Fmedia%2Fcall-icon.d25750d8.png&amp;w=256&amp;q=75"/>
-                             
-                             <div className="flex flex-col"><p className="text-lg/5 font-semibold text-primary">(800) 620-1233</p><div className="relative whitespace-nowrap"><p className="flex items-center text-sm font-medium xl:animate-[fade-v1_10s_infinite_linear]"><span className="mr-1 h-2 w-2 rounded-full bg-green-500"></span>Talk to an Expert</p><p className="hidden items-center text-sm font-medium xl:absolute xl:left-0 xl:top-0 xl:flex xl:animate-[fade-v2_10s_infinite_linear]">Wait time:
-                               <span className="font-bold">0 min</span></p></div></div></a></div></div>
+                            <div data-orientation="vertical" role="none" className="shrink-0 bg-border w-[1px] hidden h-10 xl:block"></div>
+                       <a
+        href="tel:8006201233"
+        className="absolute flex animate-[fade-v2_10s_infinite_linear] items-center xl:relative xl:animate-none"
+      >
+        <Phone className="mr-2 h-10 w-10 text-green-600" />
+        <div className="flex flex-col">
+          <p className="text-lg/5 font-semibold text-primary">(800) 620-1233</p>
+          <div className="relative whitespace-nowrap">
+            <p className="flex items-center text-sm font-medium xl:animate-[fade-v1_10s_infinite_linear]">
+              <span className="mr-1 h-2 w-2 rounded-full bg-green-500"></span>
+              Talk to an Expert
+            </p>
+            <p className="hidden items-center text-sm font-medium xl:absolute xl:left-0 xl:top-0 xl:flex xl:animate-[fade-v2_10s_infinite_linear]">
+              Wait time: <span className="font-bold">0 min</span>
+            </p>
+          </div>
+        </div>
+      </a>
+                               
+                               </div></div>
                                
                                
                                
