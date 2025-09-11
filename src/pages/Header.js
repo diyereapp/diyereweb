@@ -245,7 +245,7 @@ return (
           return (
             <li key={cat._id}>
               <a
-                href={`/category/${cat._id}`}
+                href={`/shop-category/${cat._id}`}
                 className="block px-4 py-3 text-center font-semibold text-gray-900 hover:bg-gray-100"
                 onClick={() => setOpen(false)}
               >

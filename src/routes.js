@@ -34,7 +34,7 @@ const routes = [
     element: <Single />,
   },
     {
-    path: "/category",
+      path: "/shop-category/:id",
     element: <ShopCategory />,
   },
       {
