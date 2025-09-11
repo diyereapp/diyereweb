@@ -13,6 +13,8 @@ import axios from "axios"
 import Banner from "./Banner";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { FiHelpCircle } from "react-icons/fi"; // Feather icon (react-icons)
+
 
 const bgImage = `url("data:image/svg+xml;utf8,
   <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 150'>
@@ -171,21 +173,13 @@ return (
       </button>
 
       {/* Help button */}
-      <button className="flex flex-col items-center text-xs font-bold uppercase">
-        <img
-          alt="Call Or Help Icon"
-          loading="eager"
-          width="48"
-          height="48"
-          className="h-8 w-8"
-          style={{ color: "transparent" }}
-          src="/_next/static/media/mobile-help-icon.be42a8e6.png"
-        />
-        <div className="flex items-center tracking-tight">
-          <span className="mr-1 h-2 w-2 rounded-full bg-green-500"></span>Help
-        </div>
-      </button>
-
+     <button className="flex flex-col items-center text-xs font-bold uppercase">
+      <FiHelpCircle className="h-8 w-8 text-blue-600" />
+      <div className="flex items-center tracking-tight">
+        <span className="mr-1 h-2 w-2 rounded-full bg-green-500"></span>
+        Help
+      </div>
+    </button>
       {/* Hamburger button */}
       <button
         type="button"
@@ -231,21 +225,22 @@ return (
 
 
   
-      <div
+ {/* Mobile menu panel */}
+<div
   className={`absolute top-full left-0 right-0 w-full bg-white shadow-lg z-50 transition-all duration-300 ease-in-out
     ${open ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"}`}
-  
 >
-  
-  <div className="p-4 border-t" >
+  <div className="p-4 border-t">
     <ul className="flex flex-col divide-y">
       {categories.map((cat) => {
+        const hasChildren = cat.children && cat.children.length > 0;
         const hasGrandchild =
-          cat.children?.some(
+          hasChildren &&
+          cat.children.some(
             (child) => child.children && child.children.length > 0
-          ) || false;
+          );
 
-        // Show grandparent only
+        // Case 1: Show grandparent
         if (hasGrandchild) {
           return (
             <li key={cat._id}>
@@ -260,8 +255,25 @@ return (
           );
         }
 
+        // Case 2: Show parent (has children but no grandchildren)
+        if (hasChildren && !hasGrandchild) {
+          return (
+            <li key={cat._id}>
+              <a
+                href={`/category/${cat._id}`}
+            
+                  className="block px-4 py-3 text-center font-semibold text-gray-900 hover:bg-gray-100"
+                onClick={() => setOpen(false)}
+              >
+                {cat.name}
+              </a>
+            </li>
+          );
+        }
+
         return null;
       })}
+     <li> <a     className="block px-4 py-3 text-center font-semibold text-gray-900 hover:bg-gray-100">Brands</a></li>
     </ul>
 
     {/* Example "Design Now" button */}
