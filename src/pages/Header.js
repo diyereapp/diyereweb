@@ -19,8 +19,8 @@ const bgImage = `url("data:image/svg+xml;utf8,
     <image href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAACRUlEQVR4nLVTPWtVQRBNTCCKBhSTJiKJip8oVoqK+CoxTYyFMYUhj3ff3TMzuzu79yYxJKg8TSM2goqFIGKdxkIQrGwVwUZQK0Xx619E9uELL0UiERw4zNwtDuecO9PRsXZ1/kH73P62rupsNBobEpaWlpbn9rd1kZVluQlAn3Nue5ZlvdVq3ApM9dVq2p+6tXbL4uJi11rEy3bGxsa6nHMDIlohCmdhw2nmeA5SjEDiBXZFNXWReDARrxZBy063qvaIyE6yOko2GrLBMxfXwWGOJC6ILZ6zLV6yjbdhp89k2ZXeFaTJXpa5gTz3u4jCXua434gcg/hxSGBDOmOM3jCk8+B4BxJek8Sf1pXvrS/vEZXHq9XqxiZpUpXsGePOA45zCnUgTORwCvZzOXQqwRg/a4zOG+gjw+ENcfjEUny3rnxLtiiToGaeiZCo3EGkF5MCI8UM4AMQGs1v8mRMQvCAnwPpE1B8Zzh8A8cvZONX4uIx4I60bHemYPPc7TNGTuWko8aEMoe/1lRH3uTk60TBJuugcBccXoHDj0QI1l+Q+IxZTyRxzQzTMDysPWk9auSPgjVPdkG6YEivQgLA6gz5WZDeAocXkPCRJHyAhM9ki6dAPJm2Y8XapGBrIruN0QqgIzn5yaSuDj+ek14i0stEvg4ON3PWBxC9TxIeGtF5wB9YVtiqSqXSneyLyLaaan8KmoiG0t/PrB20mR0kikMpnhrpoYSM+fAksGdiYnrzX6+ldWbJSvvZ/estryBv66vh/9RvTxMh3UHKN/wAAAAASUVORK5CYII='/>
   </svg>")`;
 const Header = () => {
-  const [open, setOpen] = useState(false);
 
+  const [open, setOpen] = useState(false);
   const [categories, setCategories] = useState([]);
   const [openCategory, setOpenCategory] = useState(null);
 
@@ -150,30 +150,134 @@ return (
  
  </a>
  
- 
- <div className="flex items-center gap-6 lg:hidden">
+ <div className="flex items-center gap-6 lg:hidden ">
+      {/* Search button */}
+      <button className="flex flex-col items-center text-xs font-bold uppercase">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="lucide lucide-search size-8"
+        >
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.3-4.3"></path>
+        </svg>
+        Search
+      </button>
+
+      {/* Help button */}
+      <button className="flex flex-col items-center text-xs font-bold uppercase">
+        <img
+          alt="Call Or Help Icon"
+          loading="eager"
+          width="48"
+          height="48"
+          className="h-8 w-8"
+          style={{ color: "transparent" }}
+          src="/_next/static/media/mobile-help-icon.be42a8e6.png"
+        />
+        <div className="flex items-center tracking-tight">
+          <span className="mr-1 h-2 w-2 rounded-full bg-green-500"></span>Help
+        </div>
+      </button>
+
+      {/* Hamburger button */}
+      <button
+        type="button"
+        className="group flex flex-col items-center text-xs font-bold uppercase"
+        onClick={() => setOpen(!open)}
+      >
+        {open ? (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="lucide lucide-x h-8 w-8"
+          >
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+          </svg>
+        ) : (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="lucide lucide-menu h-8 w-8"
+          >
+            <line x1="4" y1="6" x2="20" y2="6"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="18" x2="20" y2="18"></line>
+          </svg>
+        )}
+        Menu
+      </button>
+
+ {/* Mobile menu panel */}
+
+
   
-  <button type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-:R1mmm:" data-state="closed" className="flex flex-col 
-  items-center text-xs font-bold uppercase"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" 
-  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-search size-8"><circle cx="11"
-   cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>Search</button><button type="button" aria-haspopup="dialog" aria-expanded="false" 
-                     aria-controls="radix-:R2mmm:" data-state="closed" className="flex flex-col items-center text-xs font-bold uppercase">
-                      <img alt="Call Or Help Icon" loading="eager" width="48" height="48" decoding="async" data-nimg="1" className="h-8 w-8" 
-                      style={{color: "transparent"}} srcSet="/_next/image/?url=%2F_next%2Fstatic%2Fmedia%2Fmobile-help-icon.be42a8e6.png&amp;w=48&amp;q=75 1x,
-                       /_next/image/?url=%2F_next%2Fstatic%2Fmedia%2Fmobile-help-icon.be42a8e6.png&amp;w=96&amp;q=75 2x" 
-                       src="_next/image/index69a5.html?url=%2F_next%2Fstatic%2Fmedia%2Fmobile-help-icon.be42a8e6.png&amp;w=96&amp;q=75"/>
-                       <div className="flex items-center tracking-tight"><span className="mr-1 h-2 w-2 rounded-full bg-green-500"></span>Help</div>
-                       </button>
-                       <button type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-:R3mmm:" data-state="closed"
-                        className="group flex flex-col items-center text-xs font-bold uppercase"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                         height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                          className="lucide lucide-menu h-8 w-8 group-data-[state=open]:hidden"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20"
-                           y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg><svg xmlns="http://www.w3.org/2000/svg" 
-                     width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-                     className="lucide lucide-x h-8 w-8 group-data-[state=closed]:hidden"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>Menu</button>
+      <div
+  className={`absolute top-full left-0 right-0 w-full bg-white shadow-lg z-50 transition-all duration-300 ease-in-out
+    ${open ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"}`}
+  
+>
+  
+  <div className="p-4 border-t" >
+    <ul className="flex flex-col divide-y">
+      {categories.map((cat) => {
+        const hasGrandchild =
+          cat.children?.some(
+            (child) => child.children && child.children.length > 0
+          ) || false;
 
+        // Show grandparent only
+        if (hasGrandchild) {
+          return (
+            <li key={cat._id}>
+              <a
+                href={`/category/${cat._id}`}
+                className="block px-4 py-3 text-center font-semibold text-gray-900 hover:bg-gray-100"
+                onClick={() => setOpen(false)}
+              >
+                {cat.name}
+              </a>
+            </li>
+          );
+        }
 
-                     </div>
+        return null;
+      })}
+    </ul>
+
+    {/* Example "Design Now" button */}
+    <div className="mt-4 flex justify-center">
+      <a
+        href="/design-now"
+        className="px-6 py-2 border-2 border-blue-500 text-blue-500 font-bold rounded-xl hover:bg-blue-500 hover:text-white transition"
+        onClick={() => setOpen(false)}
+      >
+        Design Now
+      </a>
+    </div>
+  </div>
+</div>
+
+    </div>
                      
                      <div className="hidden items-center gap-4 lg:flex"><nav aria-label="Main Navigation" data-orientation="horizontal" dir="ltr" className="relative z-10 flex max-w-max flex-1 items-center justify-center">
                       
