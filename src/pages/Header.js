@@ -174,7 +174,7 @@ return (
 
       {/* Help button */}
      <button className="flex flex-col items-center text-xs font-bold uppercase">
-      <FiHelpCircle className="h-8 w-8 text-blue-600" />
+      <FiHelpCircle className="h-8 w-8 text-black-600" />
       <div className="flex items-center tracking-tight">
         <span className="mr-1 h-2 w-2 rounded-full bg-green-500"></span>
         Help
