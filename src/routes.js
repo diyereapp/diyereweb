@@ -52,7 +52,7 @@ const routes = [
   // { path: "/", element: <Navigate to="vision" /> },
   {
     path: "/login", // Catch-all route to handle unmatched paths
-    element: <Navigate to="/login" replace />,
+    element: <JwtLogin />,
   },
 ];
 

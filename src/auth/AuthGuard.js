@@ -21,7 +21,7 @@ const AuthGuard = ({ children }) => {
   return isUserAuthenticated ? (
     <>{children}</>
   ) : (
-    <Navigate replace to="/login" state={{ from: pathname }} />
+    <Navigate replace to="/" state={{ from: pathname }} />
   );
 };
 
