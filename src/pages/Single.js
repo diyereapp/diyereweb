@@ -328,6 +328,7 @@ const availableColors = [
                                                                      
                                                                      
                                                                  <button
+                                                                   type="button" 
   onClick={() =>
     navigate("/design", {
       state: {
