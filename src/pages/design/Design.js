@@ -111,21 +111,15 @@ import { useLocation } from "react-router-dom";
 export default function DesignPage() {
   const location = useLocation();
   const passedMockup = location.state?.mockup;
-const [uploadedImage, setUploadedImage] = useState(null);
-  const [mockupImage] = useState(
-    passedMockup || "/mockups/hat-front.png"
-  );
+
+  const [uploadedImage, setUploadedImage] = useState(null);
+  const [mockupImage] = useState(passedMockup || "/mockups/hat-front.png");
 
   const [selectedTool, setSelectedTool] = useState("products");
 
-  // ✅ TEXT STATE (THIS IS THE KEY)
-  const [textConfig, setTextConfig] = useState({
-    text: "",
-    fontSize: 30,
-    color: "#000000",
-    x: 150,
-    y: 150
-  });
+  // ✅ NEW TEXT STATE
+  const [texts, setTexts] = useState([]);
+  const [activeTextId, setActiveTextId] = useState(null);
 
   return (
     <>
@@ -135,23 +129,25 @@ const [uploadedImage, setUploadedImage] = useState(null);
         <Sidebar selectedTool={selectedTool} setSelectedTool={setSelectedTool} />
 
         <div className="flex flex-1 overflow-hidden">
-          {/* CANVAS */}
           <div className="flex-1 p-4 flex justify-center items-center">
             <Canva
               mockupImage={mockupImage}
-              textConfig={textConfig}
-              setTextConfig={setTextConfig}
               uploadedImage={uploadedImage}
+              texts={texts}
+              setTexts={setTexts}
+              activeTextId={activeTextId}
+              setActiveTextId={setActiveTextId}
             />
           </div>
 
-          {/* SETTINGS */}
           {selectedTool && (
             <SettingsPanel
               selectedTool={selectedTool}
-              textConfig={textConfig}
-              setTextConfig={setTextConfig}
-               setUploadedImage={setUploadedImage}
+              texts={texts}
+              setTexts={setTexts}
+              activeTextId={activeTextId}
+              setActiveTextId={setActiveTextId}
+              setUploadedImage={setUploadedImage}
             />
           )}
         </div>
@@ -159,3 +155,4 @@ const [uploadedImage, setUploadedImage] = useState(null);
     </>
   );
 }
+
