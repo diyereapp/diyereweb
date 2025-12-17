@@ -90,7 +90,7 @@ return (
       {categoryChildren.map((parent) => (
         <li key={parent._id} className="min-w-[150px] bg-white">
           <a
-            href={`/category/${parent._id}`}
+            href={`/shop-category/${parent._id}`}
             className="block font-semibold mb-3 text-gray-900 hover:text-blue-600 bg-white"
           >
             {parent.name}

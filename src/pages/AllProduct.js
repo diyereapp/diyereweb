@@ -40,8 +40,10 @@ const AllProduct = () => {
           `${process.env.REACT_APP_API_URL}/api/category/${id}`
         );
 
-        setName(category.name);
-        setPreview(category.image || "");
+      setName(category.name);
+setImage(category.image || "");     // <-- needed
+setPreview(category.image || "");
+
 
         // Fetch parent if exists
         if (category.parent) {

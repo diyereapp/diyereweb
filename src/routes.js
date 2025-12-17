@@ -13,6 +13,8 @@ import ShopCategory from "./pages/ShopCategory";
 import MyAccount from "./pages/MyAccount";
 import MyDesign from "./pages/MyDesign";
 import MyOrder from "./pages/MyOrder";
+import JwtLogin from "./components/sessions/JwtLogin";
+import DesignPage from "./pages/design/Design";
 
 const routes = [
   { path: "/oauth-callback", element: <GoogleAuthHandler /> },
@@ -32,7 +34,11 @@ const routes = [
     {
     path: "/single-product/:id",
     element: <Single />,
-  },
+  }, 
+      {
+    path: "/design",
+    element: <DesignPage />,
+  }, 
     {
       path: "/shop-category/:id",
     element: <ShopCategory />,
