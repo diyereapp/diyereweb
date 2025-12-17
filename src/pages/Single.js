@@ -330,7 +330,7 @@ const availableColors = [
                                                                  <button
                                                                    type="button" 
   onClick={() =>
-    navigate("/design", {
+    navigate("/designs", {
       state: {
         mockup: product?.images?.[0], // pass first product image
       },

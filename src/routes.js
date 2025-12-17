@@ -36,7 +36,7 @@ const routes = [
     element: <Single />,
   }, 
       {
-    path: "/design",
+    path: "/designs",
     element: <DesignPage />,
   }, 
     {
