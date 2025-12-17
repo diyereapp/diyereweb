@@ -18,7 +18,7 @@ import CreateVision from "./CreateVision";
 import DeleteVision from "./DeleteVision";
 import EditVision from "./EditVision";
 import VisionBoard from "./VisionBoard";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+
 
 const Digital = () => {
   const { user } = useAuth();
